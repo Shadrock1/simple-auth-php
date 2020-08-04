@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h2>Sign Up</h2>
+    <p>Please fill this form to create an account.</p>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($login_err)) ? 'has-error' : ''; ?>">
+            <label>Login</label>
+            <input type="text" name="login" class="form-control" value="<?php echo $login; ?>">
+            <span class="help-block"><?php echo $login_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+            <span class="help-block"><?php echo $email_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+            <span class="help-block"><?php echo $password_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($fullName_err)) ? 'has-error' : ''; ?>">
+            <label>Full name</label>
+            <input type="text" name="fullName" class="form-control" value="<?php echo $fullName; ?>">
+            <span class="help-block"><?php echo $fullName_err; ?></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="reset" class="btn btn-default" value="Reset">
+        </div>
+        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    </form>
+</div>
+</body>
+</html>
